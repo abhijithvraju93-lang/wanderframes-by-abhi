@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101713">
+<title>Wanderframes by Abhi — Every Journey Has a Frame</title>
+<style>
+:root{--bg:#0b100e;--panel:#141c18;--panel2:#1b2620;--text:#f3f5ef;--muted:#aab5aa;--accent:#c8e0a6;--line:#29362e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}.wrap{width:min(1160px,92%);margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{font-size:14px;letter-spacing:.18em;font-weight:800}.brand span{color:var(--accent)}.links{display:flex;gap:25px;color:var(--muted);font-size:13px}.links a:hover{color:var(--accent)}.menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:9px;padding:8px 11px}
+.hero{min-height:590px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#08100df2 0%,#08100dba 48%,#08100d38 100%),linear-gradient(0deg,#0b100e 0%,transparent 35%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 55%,#0b100e22)}.hero-content{position:relative;z-index:1;max-width:690px;padding:85px 0}.eyebrow{color:var(--accent);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700}.hero h1{font-family:Georgia,serif;font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-.045em;margin:22px 0}.hero h1 em{color:var(--accent);font-weight:400}.hero p{max-width:490px;color:#d0d8d0;line-height:1.8;font-size:15px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:3px;border:1px solid var(--accent);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:750;cursor:pointer}.btn.primary{background:var(--accent);color:#172017}.btn.ghost{color:white;background:#ffffff0b;border-color:#ffffff55}.section{padding:82px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}.section h2{font:400 clamp(32px,5vw,48px)/1.05 Georgia,serif;margin:10px 0}.section-head p{max-width:390px;color:var(--muted);font-size:13px;line-height:1.7;margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tile{position:relative;min-height:270px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}.tile img,.tile video{width:100%;height:100%;min-height:270px;object-fit:cover;display:block;transition:transform .5s}.tile:hover img{transform:scale(1.04)}.tile .overlay{position:absolute;inset:0;background:linear-gradient(0deg,#07100de8,transparent 60%);display:flex;flex-direction:column;justify-content:end;padding:22px}.tile small{color:var(--accent);letter-spacing:.16em;text-transform:uppercase;font-size:10px}.tile h3{font:26px Georgia,serif;margin:8px 0 0}.empty{border:1px dashed #536157;padding:34px;text-align:center;color:var(--muted);grid-column:1/-1;line-height:1.7}.story{background:var(--panel);padding:32px;border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.story h2{font:400 42px Georgia,serif;margin:12px 0}.story p{color:var(--muted);line-height:1.8;font-size:14px}.quote{font:italic 28px Georgia,serif;color:var(--accent);line-height:1.35}.footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.social{color:var(--accent)}
+/* Admin */
+.admin-trigger{position:fixed;right:16px;bottom:16px;z-index:5;border:1px solid #667568;background:#17221b;color:#eaf3e4;padding:11px 15px;border-radius:30px;font-size:12px;cursor:pointer;box-shadow:0 8px 28px #0008}
+.modal{display:none;position:fixed;inset:0;z-index:10;background:#000b;overflow:auto;padding:24px 12px}.modal.open{display:block}.admin{width:min(760px,100%);margin:20px auto;background:#101914;border:1px solid #526052;padding:24px}.admin-top{display:flex;justify-content:space-between;align-items:center}.admin h2{font:32px Georgia,serif;margin:0}.close{background:none;color:white;border:1px solid var(--line);padding:7px 12px;cursor:pointer}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.tab{background:var(--panel2);color:white;border:1px solid var(--line);padding:9px 13px;cursor:pointer}.tab.active{border-color:var(--accent);color:var(--accent)}.pane{display:none}.pane.active{display:block}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:12px;color:var(--muted)}.field input,.field textarea{width:100%;background:#0b100e;color:white;border:1px solid #405044;padding:12px;border-radius:3px}.field textarea{min-height:85px;resize:vertical}.note{font-size:12px;color:var(--muted);line-height:1.6}.items{display:grid;gap:9px;margin-top:14px}.item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px;background:var(--panel);border:1px solid var(--line);font-size:13px}.danger{background:#512b2b;border:1px solid #8b5555;color:white;padding:7px 10px;cursor:pointer}.success{color:var(--accent);font-size:12px}
+@media(max-width:700px){.links{display:none;position:absolute;top:76px;left:0;right:0;background:#101914;padding:20px 4%;flex-direction:column;z-index:4}.links.show{display:flex}.menu{display:block}.hero{min-height:560px}.hero-content{padding:70px 0}.grid{grid-template-columns:1fr 1fr}.tile,.tile img{min-height:210px}.story{grid-template-columns:1fr;padding:24px}.section{padding:62px 0}.section-head{display:block}.section-head p{margin-top:12px}}@media(max-width:440px){.grid{grid-template-columns:1fr}.tile,.tile img{min-height:245px}.brand{font-size:12px}.hero h1{font-size:52px}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#"><span>W</span>ANDERFRAMES <span>BY ABHI</span></a>
+  <nav class="links" id="navLinks"><a href="#gallery">GALLERY</a><a href="#stories">JOURNEYS</a><a href="#about">ABOUT</a><a href="https://instagram.com/wanderframes_by_abhi" target="_blank" rel="noreferrer">INSTAGRAM ↗</a></nav>
+  <button class="menu" onclick="document.getElementById('navLinks').classList.toggle('show')">MENU</button>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap"><div class="hero-content">
+    <div class="eyebrow">Travel · Photography · Adventure</div>
+    <h1>Every journey<br>has a <em>frame.</em></h1>
+    <p>Chasing horizons, collecting stories, and capturing the little moments that make every journey unforgettable.</p>
+    <div class="actions"><a class="btn primary" href="#gallery">Explore the gallery</a><a class="btn ghost" href="https://instagram.com/wanderframes_by_abhi" target="_blank" rel="noreferrer">Follow the journey ↗</a></div>
+  </div></div>
+</section>
+<section class="section wrap" id="gallery">
+  <div class="section-head"><div><div class="eyebrow">A visual journal</div><h2>Frames from the road</h2></div><p>Landscapes, rides, trails and the moments in between. A growing collection of journeys.</p></div>
+  <div class="grid" id="galleryGrid"><div class="empty">Your photographs will appear here.<br>Open <b>Manage site</b> to add your first photo or video.</div></div>
+</section>
+<section class="section wrap" id="stories">
+  <div class="story"><div><div class="eyebrow">The journey matters</div><h2>More than places.<br>Made of moments.</h2><p id="storyText">From winding mountain roads to quiet trails, this is a space for the places explored, the people met, and the memories captured along the way. Travel stories will be added here.</p><a class="social" href="https://instagram.com/wanderframes_by_abhi" target="_blank" rel="noreferrer">@wanderframes_by_abhi ↗</a></div><div class="quote">“Collect moments.<br>Keep the frames.<br>Follow the feeling.”</div></div>
+</section>
+<section class="section wrap" id="about">
+  <div class="section-head"><div><div class="eyebrow">Behind the lens</div><h2>Wanderframes by Abhi</h2></div><p>A personal space for travel photography, cinematic videos, motorcycle adventures and stories from the road.</p></div>
+</section>
+</main>
+<footer class="wrap footer"><span>© <span id="year"></span> WANDERFRAMES BY ABHI</span><span>Made for the love of the journey · <a class="social" href="https://instagram.com/wanderframes_by_abhi" target="_blank" rel="noreferrer">Instagram ↗</a></span></footer>
+<button class="admin-trigger" onclick="openAdmin()">⚙ Manage site</button>
+<div class="modal" id="adminModal" onclick="if(event.target===this)closeAdmin()">
+ <div class="admin">
+  <div class="admin-top"><div><div class="eyebrow">Private editing area</div><h2>Manage your site</h2></div><button class="close" onclick="closeAdmin()">Close ✕</button></div>
+  <div class="tabs"><button class="tab active" data-tab="media">Add media</button><button class="tab" data-tab="story">Edit text</button><button class="tab" data-tab="security">Admin lock</button></div>
+  <div class="pane active" id="pane-media">
+   <p class="note">Choose a photo or video from your device. This starter version stores media in this browser only. For a public website with cloud uploads, hosting and a secure admin account, connect a backend before launch.</p>
+   <div class="field"><label>Title</label><input id="mediaTitle" placeholder="e.g. Morning in the mountains"></div>
+   <div class="field"><label>Category</label><input id="mediaCategory" placeholder="e.g. Motorcycle ride, Trekking, Travel"></div>
+   <div class="field"><label>Choose photo or video</label><input id="mediaFile" type="file" accept="image/*,video/*"></div>
+   <button class="btn primary" onclick="addMedia()">Add to gallery</button><div id="mediaMsg" class="success"></div><div class="items" id="mediaItems"></div>
+  </div>
+  <div class="pane" id="pane-story">
+   <div class="field"><label>Intro / travel story</label><textarea id="storyInput"></textarea></div>
+   <button class="btn primary" onclick="saveStory()">Save text</button><div id="storyMsg" class="success"></div>
+  </div>
+  <div class="pane" id="pane-security">
+   <p class="note">Set a local editing PIN for this browser. This is only a convenience lock, not production-grade website security.</p>
+   <div class="field"><label>New PIN (4–12 characters)</label><input id="newPin" type="password" minlength="4" maxlength="12" placeholder="Create a PIN"></div>
+   <button class="btn primary" onclick="setPin()">Save PIN</button><div id="pinMsg" class="success"></div>
+  </div>
+ </div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+$('year').textContent=new Date().getFullYear();
+let media=JSON.parse(localStorage.getItem('wf_media')||'[]');
+let pin=localStorage.getItem('wf_pin')||'';
+function openAdmin(){if(pin){const attempt=prompt('Enter your site editing PIN');if(attempt!==pin)return;}$('adminModal').classList.add('open');renderItems();$('storyInput').value=$('storyText').textContent;}
+function closeAdmin(){$('adminModal').classList.remove('open')}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.pane').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('pane-'+b.dataset.tab).classList.add('active')}));
+function save(){localStorage.setItem('wf_media',JSON.stringify(media))}
+function render(){const g=$('galleryGrid');if(!media.length){g.innerHTML='<div class="empty">Your photographs will appear here.<br>Open <b>Manage site</b> to add your first photo or video.</div>';return;}g.innerHTML=media.map((m,i)=>`<article class="tile">${m.type==='video'?`<video src="${m.url}" controls playsinline></video>`:`<img src="${m.url}" alt="${esc(m.title)}">`}<div class="overlay"><small>${esc(m.category||'Journey')}</small><h3>${esc(m.title||'Untitled frame')}</h3></div></article>`).join('')}
+function renderItems(){$('mediaItems').innerHTML=media.map((m,i)=>`<div class="item"><span>${esc(m.title||'Untitled')} · ${m.type}</span><button class="danger" onclick="removeMedia(${i})">Remove</button></div>`).join('')}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addMedia(){const f=$('mediaFile').files[0];if(!f){$('mediaMsg').textContent='Please choose a photo or video first.';return;}if(f.size>15*1024*1024){$('mediaMsg').textContent='Please choose a file under 15 MB for this browser demo.';return;}const r=new FileReader();r.onload=()=>{media.unshift({title:$('mediaTitle').value,category:$('mediaCategory').value,type:f.type.startsWith('video')?'video':'image',url:r.result});try{save();render();renderItems();$('mediaMsg').textContent='Added to this browser gallery.';}catch(e){media.shift();$('mediaMsg').textContent='Storage is full. Try a smaller file.';}};r.readAsDataURL(f)}
+function removeMedia(i){media.splice(i,1);save();render();renderItems()}
+function saveStory(){$('storyText').textContent=$('storyInput').value;localStorage.setItem('wf_story',$('storyInput').value);$('storyMsg').textContent='Text saved in this browser.'}
+function setPin(){const v=$('newPin').value;if(v.length<4){$('pinMsg').textContent='PIN must be at least 4 characters.';return;}pin=v;localStorage.setItem('wf_pin',pin);$('pinMsg').textContent='PIN saved for this browser.';$('newPin').value=''}
+const savedStory=localStorage.getItem('wf_story');if(savedStory!==null)$('storyText').textContent=savedStory;
+render();
+</script>
+</body></html>
