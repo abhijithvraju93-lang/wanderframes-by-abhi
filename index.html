@@ -130,6 +130,8 @@ has a frame.</h1>
   let posts = [];
   let galleryMedia = [];
   let galleryViewerIndex = 0;
+  let viewerScrollY = 0;
+  let viewerBodyLocked = false;
   let travelStories = [];
   let siteContent = {...DEFAULT_CONTENT};
 
@@ -179,11 +181,36 @@ has a frame.</h1>
     $("viewerPrev").hidden = galleryMedia.length < 2;
     $("viewerNext").hidden = galleryMedia.length < 2;
   }
+  function lockPageBehindViewer() {
+    if (viewerBodyLocked) return;
+    viewerScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${viewerScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    viewerBodyLocked = true;
+  }
+  function unlockPageBehindViewer() {
+    if (!viewerBodyLocked) return;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    viewerBodyLocked = false;
+    window.scrollTo(0, viewerScrollY);
+  }
   function openPhotoViewer(index) {
     if (!galleryMedia.length) return;
     galleryViewerIndex = (index + galleryMedia.length) % galleryMedia.length;
     renderViewerMedia();
     if (!$("photoViewer").open) $("photoViewer").showModal();
+    lockPageBehindViewer();
   }
   function movePhotoViewer(step) {
     if (!galleryMedia.length) return;
@@ -191,6 +218,12 @@ has a frame.</h1>
     renderViewerMedia();
   }
   function setupPhotoViewer() {
+    $("photoViewer").addEventListener("touchmove", event => {
+      if (event.target.closest("video")) return;
+      event.preventDefault();
+    }, {passive:false});
+    $("photoViewer").addEventListener("close", unlockPageBehindViewer);
+    $("photoViewer").addEventListener("cancel", () => unlockPageBehindViewer());
     $("closePhotoViewer").addEventListener("click", () => $("photoViewer").close());
     $("viewerPrev").addEventListener("click", () => movePhotoViewer(-1));
     $("viewerNext").addEventListener("click", () => movePhotoViewer(1));
