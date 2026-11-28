@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b100e">
+<meta name="description" content="Wanderframes by Abhi — journeys, places and stories captured one frame at a time.">
+<title>WANDERFRAMES BY ABHI — Every Journey Has a Frame</title>
+<style>
+:root{--bg:#0b100e;--panel:#141c18;--panel2:#1b2620;--text:#f3f5ef;--muted:#a9b3aa;--line:#2a382f;--accent:#c4d5a5;--accent-ink:#142016;--danger:#d77b72;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:14px}.brand{font-size:14px;letter-spacing:.2em;font-weight:800}.brand span{display:block;color:var(--muted);font-size:10px;letter-spacing:.28em;font-weight:500}.nav{display:flex;gap:22px;align-items:center;font-size:13px;color:var(--muted)}.nav a{text-decoration:none}.nav a:hover{color:var(--accent)}.hero{min-height:72vh;display:flex;align-items:end;padding:70px 0 64px;position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(90deg,rgba(5,10,7,.88),rgba(5,10,7,.28)),linear-gradient(0deg,rgba(5,10,7,.55),transparent 65%),url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85") center/cover}.hero-content{max-width:720px;padding:0 7%}.eyebrow{color:var(--accent);letter-spacing:.24em;text-transform:uppercase;font-size:11px;font-weight:700}.hero h1{font-family:Georgia,serif;font-size:clamp(42px,8vw,88px);line-height:.98;font-weight:400;letter-spacing:-.045em;margin:18px 0;white-space:pre-line}.hero p{color:#d1d8cf;max-width:520px}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:11px 17px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:13px}.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}.btn.ghost{background:transparent}.btn.danger{border-color:#70413c;color:#ffc1b9}.btn:disabled{opacity:.55;cursor:wait}.section{padding:76px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:26px}.section h2{font-family:Georgia,serif;font-size:clamp(30px,5vw,48px);font-weight:400;line-height:1.1;margin:8px 0}.muted{color:var(--muted)}.gallery{display:grid;grid-template-columns:1fr;gap:15px}.gallery-more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:15px}.gallery-more[hidden]{display:none!important}.gallery-first{cursor:pointer;position:relative}.gallery-first:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.gallery-hint{display:block;margin-top:7px;color:var(--accent);font-size:11px}.photo-viewer{position:fixed;inset:0;margin:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0;padding:0;overflow:hidden;background:#000;color:#fff;display:flex;flex-direction:column;box-sizing:border-box}.photo-viewer::backdrop{background:#000;backdrop-filter:none}.viewer-head{min-height:58px;flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;color:#fff;background:#000}.viewer-stage{flex:1 1 auto;min-height:0;min-width:0;width:100%;height:auto;display:flex;align-items:center;justify-content:center;position:relative;touch-action:pan-y;background:#000;padding:0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);overflow:hidden}#viewerMedia{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;box-sizing:border-box}#viewerMedia img,#viewerMedia video{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;background:#000;flex:0 1 auto}body:has(#photoViewer[open]){overflow:hidden}#viewerMedia img,#viewerMedia video{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.viewer-count{font-size:12px;color:#cbd3ca}.gallery-more .tile img,.gallery-more .tile video{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#050806}.gallery-more .tile-info{display:none}.gallery-first .tile-info{padding:0}.gallery-first .tile-info h3,.gallery-first .tile-info p{display:none}.gallery-more .tile-info h3{font-size:12px}.gallery-more .tile-info p{font-size:10px}.tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}.tile img,.tile video{width:100%;height:250px;object-fit:cover;display:block;background:#101713}.tile-info{padding:14px}.tile-info h3{margin:0 0 4px;font-size:15px}.tile-info p{margin:0;color:var(--muted);font-size:12px}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story-card{padding:30px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}.story-card p{white-space:pre-wrap;color:#c7d0c7}.about{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:42px 0}.about-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}.about-inner p{max-width:650px;color:var(--muted)}.footer{padding:35px 0 55px;display:flex;justify-content:space-between;gap:18px;align-items:center;color:var(--muted);font-size:12px}.status{font-size:12px;color:var(--muted);min-height:20px}.empty{border:1px dashed var(--line);border-radius:16px;padding:32px;text-align:center;color:var(--muted);grid-column:1/-1}
+dialog{border:1px solid var(--line);border-radius:22px;background:#101713;color:var(--text);width:min(650px,calc(100% - 24px));max-height:88vh;padding:0;box-shadow:0 25px 90px #000b}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}.modal-head h2{font-size:18px;margin:0}.modal-body{padding:22px;overflow:auto;max-height:calc(88vh - 70px)}.field{display:grid;gap:7px;margin:14px 0}.field label{font-size:12px;color:var(--muted)}.field input,.field textarea,.field select{width:100%;background:#0b100e;border:1px solid var(--line);color:var(--text);border-radius:11px;padding:12px;outline:none}.field input[type=color]{height:48px;padding:4px}.field textarea{min-height:95px;resize:vertical}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tab{padding:8px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:12px}.tab.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.admin-list{display:grid;gap:8px}.admin-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px;border:1px solid var(--line);border-radius:12px}.admin-item small{color:var(--muted)}.hidden{display:none!important}.fine{font-size:11px;color:var(--muted)}.stories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.story-tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}.story-tile img{width:100%;height:220px;object-fit:cover;display:block}.story-tile .tile-info{padding:16px}.story-tile h3{font:400 22px Georgia,serif;margin:6px 0}.story-detail{width:min(850px,calc(100% - 24px))}.story-detail img{width:100%;max-height:440px;object-fit:cover;border-radius:14px}.story-detail-body{padding:22px}.story-detail-body p{white-space:pre-wrap;color:#cbd3ca}.story-admin-form{border:1px solid var(--line);padding:16px;border-radius:14px;margin-bottom:18px}.photo-preview-list{display:grid;gap:8px}.photo-preview-item{padding:8px;border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--muted)}.story-media-admin{display:grid;gap:8px;margin:10px 0 18px;padding:12px;border:1px solid var(--line);border-radius:12px}.story-media-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:9px;border:1px solid var(--line);border-radius:10px}.story-media-actions{display:flex;gap:7px;flex-wrap:wrap}.story-media-actions .btn{padding:7px 10px;font-size:11px}@media(max-width:760px){.nav{gap:12px;font-size:12px}.nav a:nth-child(3){display:none}.hero{min-height:65vh}.gallery{grid-template-columns:repeat(2,1fr)}.stories-grid{grid-template-columns:repeat(2,1fr)}.tile img,.tile video{height:190px}.story-grid{grid-template-columns:1fr;gap:18px}.about-inner,.footer{align-items:flex-start;flex-direction:column}.section{padding:55px 0}}@media(max-width:440px){.gallery,.stories-grid{grid-template-columns:1fr}.tile img,.tile video{height:230px}.brand{font-size:12px}.nav{gap:9px}}
+@media(max-width:600px){.photo-viewer{width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none}.viewer-head{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}}
+
+/* CINEMATIC EDITION — visual layer only; existing Supabase/admin/gallery logic preserved */
+:root{--bg:#050b08;--panel:#0d1711;--panel2:#142219;--text:#f5f7f2;--muted:#aab8ac;--line:#26372b;--accent:#a8ed45;--accent-ink:#07100b;--radius:18px}
+body{background:#050b08;line-height:1.65}
+.wrap{width:100%;max-width:none;margin:0}
+.topbar{position:absolute;z-index:20;top:0;left:50%;transform:translateX(-50%);width:min(100%,1500px);padding:22px clamp(22px,6vw,88px);color:#fff}
+.brand{font-size:17px;letter-spacing:.16em;color:#fff}.brand span{color:#d7e2d6;font-size:9px;letter-spacing:.42em}
+.nav{gap:clamp(12px,2vw,28px);font-size:12px;color:#edf3ed}.nav a:hover{color:var(--accent)}
+.hero{width:100%;min-height: min(880px,100svh);height:92vh;border-radius:0;align-items:center;padding:120px clamp(24px,8vw,130px) 85px;background-image:linear-gradient(90deg,rgba(2,8,5,.88),rgba(2,8,5,.40) 52%,rgba(2,8,5,.08)),linear-gradient(0deg,#050b08 0%,transparent 38%),url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90");background-position:center;background-size:cover}
+.hero-content{max-width:760px;padding:0}.eyebrow{color:var(--accent);letter-spacing:.28em;font-size:10px}.hero h1{font-family:Georgia,serif;font-size:clamp(54px,8.5vw,112px);font-weight:700;letter-spacing:-.055em;line-height:.91;margin:22px 0;text-shadow:0 4px 30px #0008}.hero p{max-width:540px;color:#e0e8df;font-size:15px}.hero .btn.primary{background:transparent;border:1px solid #edf5ed;color:#fff;padding:13px 23px;font-weight:600;letter-spacing:.06em}.hero .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:#07100b}
+.section{width:min(1280px,calc(100% - 48px));margin:0 auto;padding:82px 0}.section-head{margin-bottom:32px}.section h2{font-family:Georgia,serif;font-size:clamp(34px,5vw,54px);font-weight:600;letter-spacing:-.035em}.section-head .eyebrow{font-size:10px}.muted{color:#aab8ac}
+.tile,.story-tile,.story-card{background:linear-gradient(145deg,#111e15,#09110c);border-color:#293a2d;border-radius:12px;box-shadow:0 14px 35px #0003}.tile img,.tile video{transition:transform .65s ease}.tile:hover img,.tile:hover video,.story-tile:hover img{transform:scale(1.035)}.gallery-more{gap:12px}.gallery-more .tile img,.gallery-more .tile video{aspect-ratio:4/3}.gallery-first .tile-info{background:linear-gradient(0deg,#0009,transparent);padding:18px}
+.stories-grid{gap:18px}.story-tile h3{font-family:Georgia,serif;font-size:23px}.story-card{padding:clamp(22px,4vw,38px)}.story-grid{gap:clamp(24px,5vw,65px)}
+.about{width:min(1280px,calc(100% - 48px));margin:0 auto;padding:55px 0;border-color:#293a2d}.about-inner{gap:36px}.about-inner h2{font-family:Georgia,serif;font-size:42px;font-weight:500}
+.footer{width:min(1280px,calc(100% - 48px));margin:0 auto;padding:35px 0 55px}
+.btn{border-color:#344638;background:#132018}.btn.primary{background:var(--accent);border-color:var(--accent);color:#081108}.btn.ghost{background:transparent}
+.photo-viewer{z-index:1000}
+@media(max-width:760px){.topbar{padding:17px 20px}.brand{font-size:13px}.nav{gap:10px;font-size:11px}.hero{height:84svh;min-height:620px;padding:115px 26px 70px;background-position:58% center}.hero h1{font-size:clamp(48px,12vw,76px)}.hero p{font-size:13px}.section{width:calc(100% - 36px);padding:58px 0}.gallery-more{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-more .tile img,.gallery-more .tile video{aspect-ratio:1/1}.about{width:calc(100% - 36px)}.footer{width:calc(100% - 36px)}}
+@media(max-width:440px){.topbar{align-items:flex-start}.nav{gap:9px}.nav a{font-size:10px}.hero{min-height:590px}.section h2{font-size:34px}}
+/* Responsive dialog visibility fix: keep the full-screen viewer hidden until opened */
+.photo-viewer:not([open]){display:none!important}
+@media (min-width: 761px){.gallery-more{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width: 760px){.topbar{flex-wrap:wrap}.nav{flex-wrap:wrap}.hero{width:100%;background-position:58% center}.section-head{align-items:flex-start;flex-direction:column}.stories-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.story-grid{grid-template-columns:1fr}.admin-item{align-items:flex-start;flex-direction:column}}
+@media (max-width: 480px){.topbar{padding:15px 16px}.brand{font-size:12px}.nav{width:100%;justify-content:space-between;gap:8px}.nav a{font-size:10px}.hero{min-height:570px;height:82svh;padding:110px 20px 55px;background-position:60% center}.hero h1{font-size:clamp(42px,12vw,60px)}.hero p{font-size:13px}.section{width:calc(100% - 32px);padding:48px 0}.gallery-more{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stories-grid{grid-template-columns:1fr}.about{width:calc(100% - 32px)}.about-inner h2{font-size:32px}.footer{width:calc(100% - 32px)}dialog{max-height:92dvh}.modal-body{max-height:calc(92dvh - 70px);padding:16px}.row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <a class="brand" href="#" style="text-decoration:none">WANDERFRAMES <span>BY ABHI</span></a>
+  <nav class="nav"><a href="#gallery">Gallery</a><a href="#travelStories">Stories</a><a href="#about">About</a><a id="instaNav" href="https://www.instagram.com/wanderframes_by_abhi/" target="_blank" rel="noopener">Instagram ↗</a></nav>
+</header>
+<main>
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Travel · Frames · Stories</div>
+    <h1 id="heroTitle">Every journey
+has a frame.</h1>
+    <p id="heroSubtitle">A collection of roads, mountains, quiet moments and stories from the journey.</p>
+    <a class="btn primary" href="#gallery">Explore the journey ↘</a>
+  </div>
+</section>
+<section class="section" id="gallery">
+  <div class="section-head"><div><div class="eyebrow">Captured moments</div><h2>Latest frames</h2><div class="muted">A few moments from the road.</div></div></div>
+  <div class="gallery" id="galleryGrid"><div class="empty">Loading frames…</div></div>
+</section>
+<section class="section" id="travelStories"><div class="section-head"><div><div class="eyebrow">Explore the journal</div><h2>Travel stories</h2><div class="muted">Every journey deserves its own story.</div></div></div><div class="stories-grid" id="storiesGrid"><div class="empty">Loading travel stories…</div></div></section>
+<section class="section" id="story">
+  <div class="story-grid">
+    <div><div class="eyebrow">The journal</div><h2 id="storyTitle">Stories from the journey</h2><p class="muted">Every place leaves a story. Every road becomes a memory.</p></div>
+    <div class="story-card"><p id="storyText">Welcome to Wanderframes by Abhi — a personal collection of travel moments, rides, treks and cinematic frames. More stories will find their way here.</p></div>
+  </div>
+</section>
+<section class="about" id="about"><div class="about-inner"><div><div class="eyebrow">Behind the frames</div><h2 style="font:400 32px Georgia,serif;margin:8px 0">A little about this journey</h2><p id="aboutText">Wanderframes by Abhi is a personal travel space for exploring new roads, discovering quiet places and capturing the beauty of every journey.</p></div><a class="btn ghost" id="instaButton" href="https://www.instagram.com/wanderframes_by_abhi/" target="_blank" rel="noopener">Follow on Instagram ↗</a></div></section>
+</main>
+<footer class="footer"><div>© <span id="year"></span> WANDERFRAMES BY ABHI</div><div>Made of journeys and memories.</div><button class="btn ghost" id="manageOpen" type="button">Manage Site</button></footer>
+</div>
+<dialog id="adminDialog">
+  <div class="modal-head"><h2>Wanderframes · Admin</h2><button class="btn ghost" id="closeAdmin" type="button">Close</button></div>
+  <div class="modal-body">
+    <section id="loginPanel">
+      <p class="muted">Sign in with your Supabase admin account.</p>
+      <div class="field"><label for="loginEmail">Admin email</label><input id="loginEmail" type="email" autocomplete="username" placeholder="Your admin email"></div>
+      <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Your password"></div>
+      <button class="btn primary" id="loginBtn" type="button">Sign in</button>
+      <p class="status" id="loginStatus" aria-live="polite"></p>
+      <p class="fine">Your password is handled by Supabase Auth and is not stored in this website's source code.</p>
+    </section>
+    <section id="dashboardPanel" class="hidden">
+      <div class="row" style="align-items:center;margin-bottom:14px"><div class="status" id="adminIdentity">Signed in</div><button class="btn" id="logoutBtn" type="button">Sign out</button></div>
+      <div class="tabs">
+        <button class="tab active" data-tab="upload" type="button">Upload media</button>
+        <button class="tab" data-tab="content" type="button">Edit website</button>
+        <button class="tab" data-tab="stories" type="button">Travel stories</button>
+        <button class="tab" data-tab="manage" type="button">Manage gallery</button>
+      </div>
+      <section id="tab-upload">
+        <div class="field"><label for="mediaFile">Choose photo or video</label><input id="mediaFile" type="file" accept="image/*,video/*"></div>
+        <div class="field"><label for="mediaTitle">Title</label><input id="mediaTitle" maxlength="120" placeholder="A moment from the journey"></div>
+        <div class="field"><label for="mediaCategory">Category</label><select id="mediaCategory"><option>Travel</option><option>Ride</option><option>Trekking</option><option>Nature</option><option>Lifestyle</option></select></div>
+        <button class="btn primary" id="uploadBtn" type="button">Upload to gallery</button>
+        <p class="status" id="uploadStatus" aria-live="polite"></p>
+      </section>
+      <section id="tab-content" class="hidden">
+        <div class="field"><label for="editHeroTitle">Homepage headline</label><input id="editHeroTitle" maxlength="120"></div>
+        <div class="field"><label for="editHeroSubtitle">Homepage subtitle</label><textarea id="editHeroSubtitle"></textarea></div>
+        <div class="field"><label for="editStoryTitle">Story heading</label><input id="editStoryTitle" maxlength="120"></div>
+        <div class="field"><label for="editStoryText">Story text</label><textarea id="editStoryText"></textarea></div>
+        <div class="field"><label for="editAboutText">About text</label><textarea id="editAboutText"></textarea></div>
+        <div class="field"><label for="editInstagram">Instagram profile URL</label><input id="editInstagram" type="url" placeholder="https://www.instagram.com/your-id/"></div>
+        <div class="field"><label for="editAccent">Website accent colour</label><input id="editAccent" type="color" value="#c4d5a5"></div>
+        <div class="field"><label for="coverFile">Change homepage cover photo</label><input id="coverFile" type="file" accept="image/*"></div>
+        <button class="btn primary" id="saveContentBtn" type="button">Save website changes</button>
+        <p class="status" id="contentStatus" aria-live="polite"></p>
+      </section>
+      <section id="tab-stories" class="hidden">
+        <div class="story-admin-form">
+          <h3 style="margin-top:0">Add a travel story</h3>
+          <input id="storyEditId" type="hidden">
+          <div class="field"><label for="newStoryTitle">Story title</label><input id="newStoryTitle" maxlength="140" placeholder="Munnar — Chokramudi: Above the Clouds"></div>
+          <div class="row"><div class="field"><label for="newStoryLocation">Location</label><input id="newStoryLocation" maxlength="160" placeholder="Chokramudi Peak, Munnar, Kerala"></div><div class="field"><label for="newStoryDate">Travel date</label><input id="newStoryDate" type="date"></div></div>
+          <div class="field"><label for="newStoryExcerpt">Short introduction</label><textarea id="newStoryExcerpt" placeholder="A short preview shown on the homepage"></textarea></div>
+          <div class="field"><label for="newStoryBody">Full travel story</label><textarea id="newStoryBody" style="min-height:180px" placeholder="Write your complete journey here…"></textarea></div>
+          <div class="field"><label for="newStoryCover">Story cover photo</label><input id="newStoryCover" type="file" accept="image/*"><small class="fine">Choose one main cover photo (max 15 MB).</small></div>
+          <div class="field"><label for="newStoryPhotos">Additional story photos (select multiple)</label><input id="newStoryPhotos" type="file" accept="image/*,video/*" multiple><small class="fine">You can select several photos/videos together from iPhone Photos or Files. Each will also appear in the main gallery and be attached to this story. Max 150 MB each.</small><div id="storyPhotoPreview" class="photo-preview-list"></div></div>
+          <div class="row"><button class="btn primary" id="saveTravelStory" type="button">Save travel story</button><button class="btn" id="resetTravelStory" type="button">Clear form</button></div>
+          <p class="status" id="storyAdminStatus" aria-live="polite"></p>
+        </div>
+        <h3>Published stories</h3><div class="admin-list" id="adminStoriesList"><div class="muted">Loading…</div></div>
+      </section>
+      <section id="tab-manage" class="hidden">
+        <p class="fine">Remove a gallery item from the website and its storage file.</p>
+        <div class="admin-list" id="adminGalleryList"><div class="muted">Loading…</div></div>
+        <p class="status" id="manageStatus" aria-live="polite"></p>
+      </section>
+    </section>
+  </div>
+</dialog>
+<dialog id="storyDetailDialog" class="story-detail"><div class="modal-head"><h2 id="storyDetailTitle">Travel story</h2><button class="btn ghost" id="closeStoryDetail" type="button">Close</button></div><div class="story-detail-body" id="storyDetailContent"></div></dialog>
+<dialog id="photoViewer" class="photo-viewer" aria-label="Photo viewer"><div class="viewer-head"><span id="viewerCount" class="viewer-count"></span><button class="btn ghost" id="closePhotoViewer" type="button">Close ✕</button></div><div class="viewer-stage" id="viewerStage"><div id="viewerMedia"></div></div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  "use strict";
+  const SUPABASE_URL = "https://ahqmowefntdamlqibxfk.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_LZhd6MgFzUmqSTHyCBXmbg_YFHy6P3k";
+  const BUCKET = "travel-media";
+  const CONTENT_ID = "homepage";
+  const DEFAULT_CONTENT = {
+    hero_title: "Every journey\nhas a frame.",
+    hero_subtitle: "A collection of roads, mountains, quiet moments and stories from the journey.",
+    story_title: "Stories from the journey",
+    story_text: "Welcome to Wanderframes by Abhi — a personal collection of travel moments, rides, treks and cinematic frames. More stories will find their way here.",
+    about_text: "Wanderframes by Abhi is a personal travel space for exploring new roads, discovering quiet places and capturing the beauty of every journey.",
+    instagram_url: "https://www.instagram.com/wanderframes_by_abhi/",
+    accent_color: "#c4d5a5",
+    cover_path: ""
+  };
+  const $ = id => document.getElementById(id);
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+  let posts = [];
+  let galleryMedia = [];
+  let galleryViewerIndex = 0;
+  let viewerScrollY = 0;
+  let viewerBodyLocked = false;
+  let viewerPreviousStyles = null;
+  let travelStories = [];
+  let siteContent = {...DEFAULT_CONTENT};
+
+  function setStatus(id, message, isError=false) {
+    const el = $(id); if (!el) return;
+    el.textContent = message;
+    el.style.color = isError ? "#e99b91" : "";
+  }
+  function safeUrl(value) {
+    try { const u = new URL(value); return ["https:","http:"].includes(u.protocol) ? u.href : "#"; }
+    catch { return "#"; }
+  }
+  function applyContent(c) {
+    siteContent = {...DEFAULT_CONTENT, ...(c || {})};
+    $("heroTitle").innerText = siteContent.hero_title;
+    $("heroSubtitle").textContent = siteContent.hero_subtitle;
+    $("storyTitle").textContent = siteContent.story_title;
+    $("storyText").textContent = siteContent.story_text;
+    $("aboutText").textContent = siteContent.about_text;
+    const accent = /^#[0-9a-fA-F]{6}$/.test(siteContent.accent_color) ? siteContent.accent_color : DEFAULT_CONTENT.accent_color;
+    document.documentElement.style.setProperty("--accent", accent);
+    const insta = safeUrl(siteContent.instagram_url);
+    $("instaNav").href = insta; $("instaButton").href = insta;
+    if (siteContent.cover_path) {
+      db.storage.from(BUCKET).createSignedUrl(siteContent.cover_path, 3600).then(({data,error}) => {
+        if (!error && data?.signedUrl) {
+          $("hero").style.backgroundImage = `linear-gradient(90deg,rgba(5,10,7,.88),rgba(5,10,7,.28)),linear-gradient(0deg,rgba(5,10,7,.55),transparent 65%),url("${data.signedUrl}")`;
+        }
+      });
+    }
+  }
+  async function loadContent() {
+    const {data,error} = await db.from("site_content").select("content").eq("id", CONTENT_ID).maybeSingle();
+    if (error) console.warn("Content load:", error.message);
+    applyContent(data?.content || DEFAULT_CONTENT);
+  }
+  function renderViewerMedia() {
+    const item = galleryMedia[galleryViewerIndex];
+    if (!item) return;
+    const host = $("viewerMedia"); host.innerHTML = "";
+    if (item.type === "video") {
+      const video = document.createElement("video"); video.src = item.url; video.controls = true; video.autoplay = true; video.playsInline = true; host.appendChild(video);
+    } else {
+      const img = document.createElement("img"); img.src = item.url; img.alt = item.title || "Travel photograph"; host.appendChild(img);
+    }
+    $("viewerCount").textContent = `${galleryViewerIndex + 1} / ${galleryMedia.length}`;
+  }
+  function lockPageBehindViewer() {
+    if (viewerBodyLocked) return;
+    viewerScrollY = window.scrollY || window.pageYOffset || 0;
+    viewerPreviousStyles = { bodyPosition: document.body.style.position, bodyTop: document.body.style.top, bodyLeft: document.body.style.left, bodyRight: document.body.style.right, bodyWidth: document.body.style.width, bodyOverflow: document.body.style.overflow, htmlOverflow: document.documentElement.style.overflow };
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${viewerScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    viewerBodyLocked = true;
+  }
+  function unlockPageBehindViewer() {
+    if (!viewerBodyLocked) return;
+    const previous = viewerPreviousStyles || {};
+    document.body.style.position = previous.bodyPosition || "";
+    document.body.style.top = previous.bodyTop || "";
+    document.body.style.left = previous.bodyLeft || "";
+    document.body.style.right = previous.bodyRight || "";
+    document.body.style.width = previous.bodyWidth || "";
+    document.body.style.overflow = previous.bodyOverflow || "";
+    document.documentElement.style.overflow = previous.htmlOverflow || "";
+    viewerPreviousStyles = null;
+    viewerBodyLocked = false;
+    window.scrollTo(0, viewerScrollY);
+  }
+  function openPhotoViewer(index) {
+    if (!galleryMedia.length) return;
+    galleryViewerIndex = (index + galleryMedia.length) % galleryMedia.length;
+    renderViewerMedia();
+    if (!$("photoViewer").open) $("photoViewer").showModal();
+    lockPageBehindViewer();
+  }
+  function movePhotoViewer(step) {
+    if (!galleryMedia.length) return;
+    galleryViewerIndex = (galleryViewerIndex + step + galleryMedia.length) % galleryMedia.length;
+    renderViewerMedia();
+  }
+  function setupPhotoViewer() {
+    $("photoViewer").addEventListener("touchmove", event => {
+      if (event.target.closest("video")) return;
+      event.preventDefault();
+    }, {passive:false});
+    $("photoViewer").addEventListener("close", unlockPageBehindViewer);
+    $("photoViewer").addEventListener("cancel", () => unlockPageBehindViewer());
+    $("closePhotoViewer").addEventListener("click", () => $("photoViewer").close());
+    document.addEventListener("keydown", event => {
+      if (!$("photoViewer").open) return;
+      if (event.key === "ArrowLeft") movePhotoViewer(-1);
+      if (event.key === "ArrowRight") movePhotoViewer(1);
+    });
+    let touchStartX = 0;
+    $("viewerStage").addEventListener("touchstart", event => { touchStartX = event.changedTouches[0].screenX; }, {passive:true});
+    $("viewerStage").addEventListener("touchend", event => {
+      const delta = event.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(delta) > 45) movePhotoViewer(delta < 0 ? 1 : -1);
+    }, {passive:true});
+  }
+  setupPhotoViewer();
+
+  async function loadPosts() {
+    const {data,error} = await db.from("travel_posts").select("*").order("created_at",{ascending:false});
+    if (error) {
+      $("galleryGrid").innerHTML = '<div class="empty">Gallery is temporarily unavailable. Please try again later.</div>';
+      console.error("Gallery load:",error.message); return;
+    }
+    posts = data || [];
+    const grid = $("galleryGrid");
+    grid.innerHTML = "";
+    if (!posts.length) { grid.innerHTML = '<div class="empty">Your travel frames will appear here after the first upload.</div>'; return; }
+    galleryMedia = [];
+    const more = document.createElement("div");
+    more.className = "gallery-more";
+    more.id = "galleryMore";
+    more.hidden = true;
+    for (let index = 0; index < posts.length; index++) {
+      const post = posts[index];
+      let url = "";
+      if (post.media_url) {
+        const {data: signed, error: signError} = await db.storage.from(BUCKET).createSignedUrl(post.media_url,3600);
+        if (!signError) url = signed?.signedUrl || "";
+      }
+      if (url) galleryMedia.push({url, type: post.media_type === "video" ? "video" : "image", title: post.title || "Travel photograph"});
+      const viewerIndex = galleryMedia.length - 1;
+      const card = document.createElement("article"); card.className = "tile";
+      if (url && post.media_type === "video") {
+        const video = document.createElement("video"); video.src=url; video.controls=true; video.playsInline=true; video.preload="metadata"; card.appendChild(video);
+      } else if (url) {
+        const img = document.createElement("img"); img.src=url; img.alt=post.title || "Travel photograph"; img.loading="lazy"; card.appendChild(img);
+      } else {
+        const placeholder = document.createElement("div"); placeholder.className="empty"; placeholder.textContent="Media preview unavailable"; card.appendChild(placeholder);
+      }
+      const info = document.createElement("div"); info.className="tile-info";
+      const title = document.createElement("h3"); title.textContent=post.title || "Untitled frame";
+      const category = document.createElement("p"); category.textContent=post.category || "Travel";
+      info.append(title,category);
+      if (index === 0) {
+        card.classList.add("gallery-first");
+        card.setAttribute("role","button");
+        card.setAttribute("tabindex","0");
+        card.setAttribute("aria-expanded","false");
+        const hint=document.createElement("small");hint.className="gallery-hint";hint.textContent="Tap this photo to view all frames ↓";info.appendChild(hint);
+        const toggleGallery=()=>{
+          if (!more.hidden) { openPhotoViewer(viewerIndex); return; }
+          more.hidden=false;
+          card.setAttribute("aria-expanded","true");
+          hint.textContent="Tap the photo again to view it full screen ↑";
+        };
+        card.addEventListener("click",(event)=>{if(event.target.closest("video"))return;toggleGallery();});
+        card.addEventListener("keydown",(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();toggleGallery();}});
+        card.appendChild(info);
+        grid.appendChild(card);
+      } else {
+        card.appendChild(info);
+        card.addEventListener("click", (event) => { if (event.target.closest("video")) return; openPhotoViewer(viewerIndex); });
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        card.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openPhotoViewer(viewerIndex); } });
+        more.appendChild(card);
+      }
+    }
+    grid.appendChild(more);
+  }
+  function makeSlug(value) {
+    return value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || `journey-${Date.now()}`;
+  }
+  async function signedMedia(path) {
+    if (!path) return "";
+    const {data,error}=await db.storage.from(BUCKET).createSignedUrl(path,3600);
+    return error ? "" : (data?.signedUrl || "");
+  }
+  async function loadTravelStories() {
+    const {data,error}=await db.from("travel_stories").select("*").order("created_at",{ascending:false});
+    const grid=$("storiesGrid");
+    if(error){grid.innerHTML='<div class="empty">Travel stories are temporarily unavailable.</div>';console.error(error.message);return;}
+    travelStories=data||[];grid.innerHTML="";
+    if(!travelStories.length){grid.innerHTML='<div class="empty">Travel stories are coming soon.</div>';return;}
+    for(const story of travelStories){
+      const cover=await signedMedia(story.cover_path);const card=document.createElement("article");card.className="story-tile";
+      if(cover){const img=document.createElement("img");img.src=cover;img.alt=story.title;img.loading="lazy";card.appendChild(img);}
+      const info=document.createElement("div");info.className="tile-info";const meta=document.createElement("div");meta.className="eyebrow";meta.textContent=[story.location,story.travel_date].filter(Boolean).join(" · ");
+      const title=document.createElement("h3");title.textContent=story.title;const excerpt=document.createElement("p");excerpt.textContent=story.excerpt||"";
+      const read=document.createElement("button");read.className="btn primary";read.type="button";read.textContent="Read full story →";read.addEventListener("click",()=>openTravelStory(story));
+      info.append(meta,title,excerpt,read);card.appendChild(info);grid.appendChild(card);
+    }
+  }
+  async function openTravelStory(story){
+    $("storyDetailTitle").textContent=story.title;const body=$("storyDetailContent");body.innerHTML="";
+    const cover=await signedMedia(story.cover_path);if(cover){const img=document.createElement("img");img.src=cover;img.alt=story.title;body.appendChild(img);}
+    const meta=document.createElement("p");meta.className="eyebrow";meta.textContent=[story.location,story.travel_date].filter(Boolean).join(" · ");body.appendChild(meta);
+    const intro=document.createElement("p");intro.textContent=story.excerpt||"";body.appendChild(intro);
+    const full=document.createElement("p");full.textContent=story.body||"";body.appendChild(full);
+    const attached=posts.filter(p=>p.story_id===story.id);
+    if(attached.length){const heading=document.createElement("h3");heading.textContent="Frames from this journey";body.appendChild(heading);const grid=document.createElement("div");grid.className="gallery";
+      for(const post of attached){const url=await signedMedia(post.media_url);if(!url)continue;const card=document.createElement("article");card.className="tile";
+        if(post.media_type==="video"){const v=document.createElement("video");v.src=url;v.controls=true;v.playsInline=true;card.appendChild(v);}else{const img=document.createElement("img");img.src=url;img.alt=post.title||story.title;card.appendChild(img);}grid.appendChild(card);}
+      body.appendChild(grid);
+    }
+    $("storyDetailDialog").showModal();
+  }
+  function resetStoryForm(){["storyEditId","newStoryTitle","newStoryLocation","newStoryDate","newStoryExcerpt","newStoryBody"].forEach(id=>$(id).value="");$("newStoryCover").value="";$("newStoryPhotos").value="";$("storyPhotoPreview").innerHTML="";$("saveTravelStory").textContent="Save travel story";}
+  async function removeStoryPhoto(post, storyTitle){
+    if(!confirm(`Remove "${post.title || "this photo"}" from "${storyTitle}"? It will remain in the main gallery.`)) return;
+    const {error}=await db.from("travel_posts").update({story_id:null}).eq("id",post.id);
+    if(error){setStatus("storyAdminStatus",error.message,true);return;}
+    setStatus("storyAdminStatus","Photo removed from this story. It remains in the gallery.");
+    await loadPosts();await loadAdminStories();
+  }
+  async function permanentlyDeleteStoryPhoto(post, storyTitle){
+    if(!confirm(`PERMANENTLY delete "${post.title || "this photo"}" from the story, gallery and storage? This cannot be undone.`)) return;
+    setStatus("storyAdminStatus","Deleting photo permanently…");
+    if(post.media_url){
+      const {error:fileError}=await db.storage.from(BUCKET).remove([post.media_url]);
+      if(fileError){setStatus("storyAdminStatus",`Storage deletion failed: ${fileError.message}`,true);return;}
+    }
+    const {error:rowError}=await db.from("travel_posts").delete().eq("id",post.id);
+    if(rowError){setStatus("storyAdminStatus",`The storage file was removed, but the gallery record could not be deleted: ${rowError.message}`,true);return;}
+    setStatus("storyAdminStatus","Photo permanently deleted from story, gallery and storage.");
+    await loadPosts();await loadAdminStories();
+  }
+  async function loadAdminStories(){
+    await loadTravelStories();await loadPosts();
+    const list=$("adminStoriesList");list.innerHTML="";
+    if(!travelStories.length){list.textContent="No stories published yet.";return;}
+    for(const story of travelStories){
+      const item=document.createElement("div");item.className="admin-item";
+      const label=document.createElement("div");const title=document.createElement("strong");title.textContent=story.title;
+      const small=document.createElement("small");small.textContent=story.location||"Travel story";label.append(title,document.createElement("br"),small);
+      const actions=document.createElement("div");actions.className="row";
+      const edit=document.createElement("button");edit.className="btn";edit.type="button";edit.textContent="Edit";
+      edit.addEventListener("click",()=>{$("storyEditId").value=story.id;$("newStoryTitle").value=story.title||"";$("newStoryLocation").value=story.location||"";$("newStoryDate").value=story.travel_date||"";$("newStoryExcerpt").value=story.excerpt||"";$("newStoryBody").value=story.body||"";$("saveTravelStory").textContent="Update travel story";setStatus("storyAdminStatus","Editing story. Upload additional photos below to add more frames.");$("tab-stories").scrollIntoView({behavior:"smooth"});});
+      const del=document.createElement("button");del.className="btn danger";del.type="button";del.textContent="Delete story";
+      del.addEventListener("click",async()=>{if(!confirm(`Delete story "${story.title}"? Its photos will remain in the main gallery.`))return;const {error}=await db.from("travel_stories").delete().eq("id",story.id);if(error){setStatus("storyAdminStatus",error.message,true);return;}await db.from("travel_posts").update({story_id:null}).eq("story_id",story.id);setStatus("storyAdminStatus","Story deleted. Gallery photos were kept.");await loadAdminStories();});
+      actions.append(edit,del);item.append(label,actions);list.appendChild(item);
+      const attached=posts.filter(post=>post.story_id===story.id);
+      const mediaBox=document.createElement("div");mediaBox.className="story-media-admin";
+      const heading=document.createElement("strong");heading.textContent=`Photos/videos in this story (${attached.length})`;mediaBox.appendChild(heading);
+      if(!attached.length){const none=document.createElement("small");none.className="muted";none.textContent="No additional photos or videos attached.";mediaBox.appendChild(none);}
+      for(const post of attached){
+        const row=document.createElement("div");row.className="story-media-row";
+        const name=document.createElement("small");name.textContent=`${post.title||"Untitled media"} · ${post.media_type||"photo"}`;
+        const buttons=document.createElement("div");buttons.className="story-media-actions";
+        const detach=document.createElement("button");detach.className="btn";detach.type="button";detach.textContent="Remove from Story";detach.addEventListener("click",()=>removeStoryPhoto(post,story.title));
+        const permanent=document.createElement("button");permanent.className="btn danger";permanent.type="button";permanent.textContent="Delete Permanently";permanent.addEventListener("click",()=>permanentlyDeleteStoryPhoto(post,story.title));
+        buttons.append(detach,permanent);row.append(name,buttons);mediaBox.appendChild(row);
+      }
+      list.appendChild(mediaBox);
+    }
+  }
+  async function saveTravelStory(){
+    const id=$("storyEditId").value,title=$("newStoryTitle").value.trim(),coverFile=$("newStoryCover").files[0],extraFiles=Array.from($("newStoryPhotos").files||[]);
+    if(!title){setStatus("storyAdminStatus","Please enter a story title.",true);return;}
+    if(!id&&!coverFile){setStatus("storyAdminStatus","Please choose a cover photo for this story.",true);return;}
+    if(coverFile&&(!coverFile.type.startsWith("image/")||coverFile.size>15*1024*1024)){setStatus("storyAdminStatus","Cover must be an image under 15 MB.",true);return;}
+    for(const f of extraFiles){if(!(f.type.startsWith("image/")||f.type.startsWith("video/"))||f.size>150*1024*1024){setStatus("storyAdminStatus",`Unsupported file or file over 150 MB: ${f.name}`,true);return;}}
+    const btn=$("saveTravelStory");btn.disabled=true;setStatus("storyAdminStatus","Saving story and uploading photos… keep this page open.");
+    let coverPath=null;
+    if(coverFile){const ext=(coverFile.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");coverPath=`story-covers/${Date.now()}-${crypto.randomUUID()}.${ext}`;const {error}=await db.storage.from(BUCKET).upload(coverPath,coverFile,{contentType:coverFile.type,upsert:false});if(error){btn.disabled=false;setStatus("storyAdminStatus",error.message,true);return;}}
+    const record={title,slug:makeSlug(title),location:$("newStoryLocation").value.trim(),travel_date:$("newStoryDate").value||null,excerpt:$("newStoryExcerpt").value.trim(),body:$("newStoryBody").value.trim()};if(coverPath)record.cover_path=coverPath;
+    let saved;
+    if(id){saved=await db.from("travel_stories").update(record).eq("id",id).select("id").single();}
+    else{saved=await db.from("travel_stories").insert(record).select("id").single();}
+    if(saved.error){btn.disabled=false;setStatus("storyAdminStatus",saved.error.message,true);return;}
+    const storyId=saved.data.id;let uploaded=0;
+    for(const f of extraFiles){const ext=(f.name.split(".").pop()||"bin").toLowerCase().replace(/[^a-z0-9]/g,"");const path=`story-media/${Date.now()}-${crypto.randomUUID()}.${ext}`;
+      const up=await db.storage.from(BUCKET).upload(path,f,{contentType:f.type||"application/octet-stream",upsert:false});if(up.error){setStatus("storyAdminStatus",`Story saved, but ${f.name} upload failed: ${up.error.message}`,true);continue;}
+      const type=f.type.startsWith("video/")?"video":"photo";const ins=await db.from("travel_posts").insert({title:f.name,description:"",media_url:path,media_type:type,category:"Travel",story_id:storyId});if(ins.error){await db.storage.from(BUCKET).remove([path]);setStatus("storyAdminStatus",`Story saved, but ${f.name} could not be linked: ${ins.error.message}`,true);}else uploaded++;
+    }
+    btn.disabled=false;resetStoryForm();setStatus("storyAdminStatus",`Story saved successfully. ${uploaded} additional photo/video file(s) added.`);await loadPosts();await loadAdminStories();
+  }
+  function showDashboard(isSignedIn, email="") {
+    $("loginPanel").classList.toggle("hidden",isSignedIn);
+    $("dashboardPanel").classList.toggle("hidden",!isSignedIn);
+    $("adminIdentity").textContent = email ? `Signed in as ${email}` : "Signed in";
+  }
+  async function fillContentForm() {
+    await loadContent();
+    $("editHeroTitle").value=siteContent.hero_title;
+    $("editHeroSubtitle").value=siteContent.hero_subtitle;
+    $("editStoryTitle").value=siteContent.story_title;
+    $("editStoryText").value=siteContent.story_text;
+    $("editAboutText").value=siteContent.about_text;
+    $("editInstagram").value=siteContent.instagram_url;
+    $("editAccent").value=siteContent.accent_color || DEFAULT_CONTENT.accent_color;
+  }
+  async function loadAdminList() {
+    await loadPosts();
+    const list=$("adminGalleryList"); list.innerHTML="";
+    if (!posts.length) { list.textContent="No gallery items yet."; return; }
+    posts.forEach(post=>{
+      const item=document.createElement("div"); item.className="admin-item";
+      const label=document.createElement("div");
+      const title=document.createElement("strong"); title.textContent=post.title || "Untitled";
+      const sub=document.createElement("br"); const small=document.createElement("small"); small.textContent=post.media_type+" · "+(post.category||"Travel");
+      label.append(title,sub,small);
+      const del=document.createElement("button"); del.className="btn danger"; del.type="button"; del.textContent="Delete";
+      del.addEventListener("click",()=>deletePost(post));
+      item.append(label,del); list.appendChild(item);
+    });
+  }
+  async function deletePost(post) {
+    if (!confirm(`Delete "${post.title || "this item"}" from the gallery?`)) return;
+    setStatus("manageStatus","Deleting…");
+    const {error:rowError}=await db.from("travel_posts").delete().eq("id",post.id);
+    if (rowError) { setStatus("manageStatus",rowError.message,true); return; }
+    if (post.media_url) {
+      const {error:fileError}=await db.storage.from(BUCKET).remove([post.media_url]);
+      if (fileError) console.warn("Storage delete:",fileError.message);
+    }
+    setStatus("manageStatus","Gallery item deleted.");
+    await loadAdminList();
+  }
+  $("manageOpen").addEventListener("click",async()=>{
+    $("adminDialog").showModal();
+    const {data}=await db.auth.getSession();
+    showDashboard(!!data.session,data.session?.user?.email||"");
+    if(data.session) await fillContentForm();
+  });
+  $("closeAdmin").addEventListener("click",()=>$("adminDialog").close());
+  $("loginBtn").addEventListener("click",async()=>{
+    const email=$("loginEmail").value.trim(), password=$("loginPassword").value;
+    if(!email||!password){setStatus("loginStatus","Enter your email and password.",true);return;}
+    $("loginBtn").disabled=true;setStatus("loginStatus","Signing in…");
+    const {data,error}=await db.auth.signInWithPassword({email,password});
+    $("loginBtn").disabled=false;
+    if(error){setStatus("loginStatus",error.message,true);return;}
+    showDashboard(true,data.user?.email||email);setStatus("loginStatus","");await fillContentForm();
+  });
+  $("logoutBtn").addEventListener("click",async()=>{await db.auth.signOut();showDashboard(false);});
+  document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",async()=>{
+    document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b===btn));
+    ["upload","content","stories","manage"].forEach(name=>$("tab-"+name).classList.toggle("hidden",btn.dataset.tab!==name));
+    if(btn.dataset.tab==="content") await fillContentForm();
+    if(btn.dataset.tab==="manage") await loadAdminList();
+    if(btn.dataset.tab==="stories") await loadAdminStories();
+  }));
+  $("uploadBtn").addEventListener("click",async()=>{
+    const file=$("mediaFile").files[0], title=$("mediaTitle").value.trim();
+    if(!file){setStatus("uploadStatus","Choose a photo or video first.",true);return;}
+    if(file.size>150*1024*1024){setStatus("uploadStatus","File is larger than 150 MB. Please choose a smaller file.",true);return;}
+    $("uploadBtn").disabled=true;setStatus("uploadStatus","Uploading media… please keep this page open.");
+    const ext=(file.name.split(".").pop()||"bin").toLowerCase().replace(/[^a-z0-9]/g,"");
+    const path=`${Date.now()}-${crypto.randomUUID()}.${ext}`;
+    const {error:uploadError}=await db.storage.from(BUCKET).upload(path,file,{contentType:file.type||"application/octet-stream",upsert:false});
+    if(uploadError){$("uploadBtn").disabled=false;setStatus("uploadStatus",uploadError.message,true);return;}
+    const mediaType=file.type.startsWith("video/")?"video":"photo";
+    const {error:insertError}=await db.from("travel_posts").insert({title:title||file.name,description:"",media_url:path,media_type:mediaType,category:$("mediaCategory").value});
+    if(insertError){
+      await db.storage.from(BUCKET).remove([path]);
+      $("uploadBtn").disabled=false;setStatus("uploadStatus",insertError.message,true);return;
+    }
+    $("mediaFile").value="";$("mediaTitle").value="";$("uploadBtn").disabled=false;
+    setStatus("uploadStatus","Upload complete. Your frame is now in the gallery.");
+    await loadPosts();
+  });
+  $("saveContentBtn").addEventListener("click",async()=>{
+    $("saveContentBtn").disabled=true;setStatus("contentStatus","Saving website changes…");
+    const rawInsta=$("editInstagram").value.trim();
+    const validInsta=safeUrl(rawInsta);
+    if(validInsta==="#" || !/^https:\/\/(www\.)?instagram\.com\//i.test(validInsta)){
+      setStatus("contentStatus","Please enter a valid Instagram profile URL beginning with https://www.instagram.com/",true);
+      $("saveContentBtn").disabled=false;return;
+    }
+    const content={
+      hero_title:$("editHeroTitle").value.trim(),
+      hero_subtitle:$("editHeroSubtitle").value.trim(),
+      story_title:$("editStoryTitle").value.trim(),
+      story_text:$("editStoryText").value.trim(),
+      about_text:$("editAboutText").value.trim(),
+      instagram_url:validInsta,
+      accent_color:$("editAccent").value,
+      cover_path:siteContent.cover_path||""
+    };
+    const cover=$("coverFile").files[0];
+    if(cover){
+      if(!cover.type.startsWith("image/")){setStatus("contentStatus","Cover must be an image file.",true);$("saveContentBtn").disabled=false;return;}
+      if(cover.size>15*1024*1024){setStatus("contentStatus","Please choose a cover image under 15 MB.",true);$("saveContentBtn").disabled=false;return;}
+      const ext=(cover.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
+      const path=`covers/${Date.now()}-${crypto.randomUUID()}.${ext}`;
+      const {error:coverError}=await db.storage.from(BUCKET).upload(path,cover,{contentType:cover.type,upsert:false});
+      if(coverError){setStatus("contentStatus",coverError.message,true);$("saveContentBtn").disabled=false;return;}
+      content.cover_path=path;
+    }
+    const {error}=await db.from("site_content").upsert({id:CONTENT_ID,content,updated_at:new Date().toISOString()});
+    $("saveContentBtn").disabled=false;
+    if(error){setStatus("contentStatus",error.message,true);return;}
+    $("coverFile").value="";applyContent(content);setStatus("contentStatus","Website changes saved successfully.");
+  });
+  $("saveTravelStory").addEventListener("click",saveTravelStory);
+  $("resetTravelStory").addEventListener("click",resetStoryForm);
+  $("closeStoryDetail").addEventListener("click",()=>$("storyDetailDialog").close());
+  $("newStoryPhotos").addEventListener("change",()=>{const box=$("storyPhotoPreview");box.innerHTML="";for(const f of Array.from($("newStoryPhotos").files||[])){const d=document.createElement("div");d.className="photo-preview-item";d.textContent=`${f.name} · ${(f.size/1024/1024).toFixed(1)} MB`;box.appendChild(d);}});
+  db.auth.getSession().then(({data})=>{if(data.session)showDashboard(true,data.session.user?.email||"");});
+  db.auth.onAuthStateChange((_event,session)=>showDashboard(!!session,session?.user?.email||""));
+  $("year").textContent=new Date().getFullYear();
+  loadContent();loadPosts();loadTravelStories();
+})();
+</script>
+</body>
+</html>
